@@ -1,15 +1,15 @@
 FROM python:3.10-slim
 
-ENV PYTHONUNBUFFERED=1 \
-    PIP_NO_CACHE_DIR=1 \
-    MODEL_DIR=/app/model
-
 WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
 
-# copy code + model
-COPY app/ /app/
+# copy file yêu cầu thư viện
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+# copy toàn bộ source
+COPY . .
 
 EXPOSE 5000
-CMD ["python", "app.py"]
+
+CMD ["python", "app/app.py"]
