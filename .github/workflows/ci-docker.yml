@@ -3,11 +3,14 @@ name: Build & Push Docker image to Docker Hub
 on:
   push:
     branches:
-      - main        # chỉ chạy khi đẩy lên nhánh main
+      - main
+
+env:
+  DOCKER_IMAGE: truongtrieuvy/mlops-flask   # 👉 sửa "truongtrieuvy" thành Docker ID của bạn
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest   # dùng runner cloud của GitHub
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout source
@@ -24,4 +27,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/mlops-flask:latest
+          tags: ${{ env.DOCKER_IMAGE }}:latest
