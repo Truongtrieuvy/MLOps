@@ -17,7 +17,7 @@ TPL = r"""
 <html lang="vi">
 <head>
   <meta charset="utf-8" />
-  <title>MLOps Demo 1 – Flask UI</title>
+  <title>MLOps Demo – Flask UI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
